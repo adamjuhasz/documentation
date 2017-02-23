@@ -8,7 +8,7 @@ newScript(scriptname?: string): Script;
 #### addGreeting
 Adds a greeting for new users. Only called once per user lifetime (on first connection).
 ```javascript
-addGreeting((user: User, response: Response) => void): void;
+addGreeting((user: User, response: Response)): void;
 ```
 #### request
 Send a http request.
