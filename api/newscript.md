@@ -50,6 +50,14 @@ newScript('weather').expect.text(function(session, response, stop) {
 });
 ```
 
+#### Image
+```javascript
+// Example
+newScript('weather').expect.image(function(session, response, stop) {
+    console.log(session.input.message);
+});
+```
+
 ## StopFunction {#stopfunction}
 Defined as `() => void`
 
