@@ -1,5 +1,4 @@
 #Methods
-
 ## Globals
 #### newScript
 Creates a script for user interaction.
