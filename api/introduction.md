@@ -23,7 +23,7 @@ newTest(): Tester
 ### newScript('name')
 Main function used to build up scripts for your bot. All of the properties ext
 
-* [begin](./newscript)
+* [begin](./newscript.html)
 * dialog
 * expect
 
