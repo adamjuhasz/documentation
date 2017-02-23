@@ -5,6 +5,7 @@
 * expect
 
 All properties take a function in the format of
+
 function(**session**: [Session](/api/session.md), **response**: [Response](/api/response.md), **stop**: [StopFunction](#stopfunction)) => void
 
 _When no script-name is passed the script is set as the default script._
