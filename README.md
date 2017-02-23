@@ -1,3 +1,3 @@
-# My Awesome API
+# Alana
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+Alana in a framework for chatbots that is intent focused. What that means is that instead of responding to text, alana focuses the developer on responding to users' intents.
