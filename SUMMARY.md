@@ -7,6 +7,8 @@
 ## API
 
 * [Introduction](api/introduction.md)
-* [User](api/user.md)
 * [newScript](api/newscript.md)
+* [User](api/user.md)
+* Session
+* Response
 
