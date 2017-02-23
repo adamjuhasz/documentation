@@ -4,9 +4,10 @@
 * dialog
 * expect
 
-All properties take a function function(**session**: [Session](./session.html), **response**: Response, **stop**: [StopFunction](#stopfunction)) => void
+All properties take a function in the format of
+function(**session**: [Session](/api/session.md), **response**: [Response](/api/response.md), **stop**: [StopFunction](#stopfunction)) => void
 
-_When no name is passed the script is set as the default script._
+_When no script-name is passed the script is set as the default script._
 
 ## begin {#begin}
 Example:
@@ -19,9 +20,19 @@ This is called when the script is first entered by the user.
 
 ## dialog {#dialog}
 Example:
-```typescript
+```javascript
 newScript('weather').dialog((session, response, stop) => {
-response.sendText('Where would you like the weather forecast for?');
+    if (!session.input.location) {
+        response.sendText("I don't know where that is, can you try again?");
+        stop();
+    }
+    response.sendText(`Checking forecast for ${session.input.location}`);
+    return request({
+        uri: 'forecast.com',
+        method: 'POST',
+        json: true,
+        body: {},
+    });
 });
 ```
 
