@@ -1,3 +1,4 @@
+<- Return to API
 # newScript(name?: string)
 ## Properties
 * [begin](#begin)
