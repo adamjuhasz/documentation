@@ -23,9 +23,10 @@ newTest(): Tester
 ### newScript('name')
 Main function used to build up scripts for your bot. All of the properties ext
 
-* [begin](/api/newscript.md#begin)
-* dialog
-* expect
+* [**begin**](/api/newscript.md#begin)
+* [**dialog**](/api/newscript.md#dialog)
+* [**expect**](/api/newscript.md#expect)
 
 
 ### request(options)
+Send an http request to another server
