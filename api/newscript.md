@@ -21,23 +21,23 @@ This is called when the script is first entered by the user.
 ## dialog {#dialog}
 Example:
 ```javascript
-newScript('weather').dialog((session, response, stop) => {
+newScript('weather').dialog(function(session, response, stop) {
     if (!session.input.location) {
         response.sendText("I don't know where that is, can you try again?");
         stop();
     }
     response.sendText(`Checking forecast for ${session.input.location}`);
     return request({
-        uri: 'forecast.com',
-        method: 'POST',
-        json: true,
-        body: {},
+        uri: 'forecast.com', method: 'POST',
+        json: true, body: {},
     });
 });
 ```
 
 ## expect {#expect}
 ### Properties
+* text
+* image
 
 ## StopFunction {#stopfunction}
 Defined as `() => void`
