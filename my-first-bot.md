@@ -9,10 +9,24 @@ _tl:dr_
 3. Select template **none**
 ---
 ## Code
-Click on your new bot to open it and then select the 'Code' tab. Notice the two directories, "scripts" and "tests". Click on "main.js" under scripts
-{% video %} https://vimeo.com/205468852 {% endvideo %}
+Click on your new bot to open it and then select the 'Code' tab. 
+
+Notice the two directories, "scripts" and "tests". Click on "main.js" under scripts to open it.
+
+Change the `response.sendText(...);` code to read `response.sendText(sessions.message.text);`. This will send back the exact some text that the user is sending.
+
+
+The file should be similar to
+```javascript
+newScript()
+  .dialog((sessions, response) => {
+    response.sendText(sessions.message.text);
+  });
+``` 
+
 ---
 ## Test
+Now let's test
 
 ---
 ## Deploy
