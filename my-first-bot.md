@@ -9,8 +9,8 @@ _tl:dr_
 3. Select template **none**
 ---
 ## Code
-Click on your new bot to open it and then select the 'Code' tab. Notice the two directories
-{% video %}https://vimeo.com/205468852{% endvideo %}
+Click on your new bot to open it and then select the 'Code' tab. Notice the two directories, "scripts" and "tests". Click on "main.js" under scripts
+{% video %} https://vimeo.com/205468852 {% endvideo %}
 ---
 ## Test
 
