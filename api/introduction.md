@@ -4,6 +4,11 @@
 ```typescript
 newScript(scriptname?: string): Script;
 ```
+
+```typescript
+addGreeting((user: User, response: Response) => void): void;
+```
+
 ```typescript
 request({
 uri: string;
@@ -16,9 +21,11 @@ newTest(): Tester
 
 
 ### newScript('name')
-Main function used to build up scripts for your bot.
+Main function used to build up scripts for your bot. All of the properties ext
 
-
+* [begin]()
+* dialog
+* expect
 
 
 ### request(options)
