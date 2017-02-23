@@ -7,6 +7,6 @@
 ## API
 
 * [Introduction](api/introduction.md)
-* User
+* [User](api/user.md)
 * [newScript](api/newscript.md)
 
