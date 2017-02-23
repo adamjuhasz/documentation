@@ -17,3 +17,5 @@
 
 * [Scripts](concepts/scripts.md)
 
+## Cookbook
+

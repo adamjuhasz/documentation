@@ -41,4 +41,4 @@ What's a bot good for if no one can talk to it. Let's deploy our first bot.
 
 ---
 # Add some jazz
-Next lets do some test driven development and test some new functionality. We'll add a prompt so that a new user knows 
+Next lets do some test driven development and test some new functionality. We'll add a greeting so that a new user knows what to do.
