@@ -1,20 +1,23 @@
 #Methods
 
 ## Globals
+#### newScript
+Creates a script for user interaction.
 ```typescript
 newScript(scriptname?: string): Script;
 ```
-
+#### addGreeting
+Adds a greeting for new users. Only called once per user lifetime (on first connection).
 ```javascript
 addGreeting((user: User, response: Response) => void): void;
 ```
-
+#### request
+Send a http request.
 ```typescript
-request({
-uri: string;
-method: string;
-}): Promise<Request>;
+request(opts: RequestOptions): Promise<Request>;
 ```
+#### newTest
+Create a new test.
 ```typescript
 newTest(): Tester
 ```
