@@ -1,4 +1,4 @@
-<- Return to API
+[<- Return to API](/api/introduction.md)
 # newScript(name?: string)
 ## Properties
 * [begin](#begin)
