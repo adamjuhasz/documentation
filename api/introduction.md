@@ -5,7 +5,7 @@
 newScript(scriptname?: string): Script;
 ```
 
-```typescript
+```javascript
 addGreeting((user: User, response: Response) => void): void;
 ```
 
