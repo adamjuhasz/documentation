@@ -9,6 +9,6 @@
 * [Introduction](api/introduction.md)
 * [newScript](api/newscript.md)
 * [User](api/user.md)
-* Session
-* Response
+* [Session](api/session.md)
+* [Response](api/response.md)
 
