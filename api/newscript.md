@@ -39,15 +39,16 @@ newScript('weather').dialog(function(session, response, stop) {
 ```
 
 ## expect {#expect}
-### Properties
+**Properties**
 * text
 * image
+* button
 
 #### Text
 ```javascript
 // Example
 newScript('weather').expect.text(function(session, response, stop) {
-    console.log(session.input.message);
+    console.log(session.input.url);
 });
 ```
 
@@ -59,7 +60,15 @@ newScript('weather').expect.image(function(session, response, stop) {
 });
 ```
 
+#### Button
+```javascript
+// Example
+newScript('weather').expect.button(function(session, response, stop) {
+    console.log(session.input.message);
+});
+```
+
 ## StopFunction {#stopfunction}
 Defined as `() => void`
 
-Will stop the script from executing till the some user input.
+Will stop the script from executing till the next user input.
