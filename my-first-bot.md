@@ -51,8 +51,8 @@ Click **Save** on the toolbar and wait a few moments as the tests run, we'll rec
 What's a bot good for if no one can talk to it. Let's deploy our first bot. Click on the **platforms** tab. Click the floating action button to add a new platform. Select Facebook as the platform. Open a new tab and go to [developers.facebook.com](https://developers.facebook.com) and create a new bot. 
 
 ---
-# Add some jazz
-Next lets do some test driven development and test some new functionality. We'll add a greeting so that a new user knows what to do when they interact with the bot.
+# Add a new user greeting
+Next lets do some test driven development (TDD) and add a greeting for . We'll add a greeting so that a new user knows what to do when they interact with the bot.
 
 ### Add a test
 Click on **main.js** in the tests directory to open it. Test for a greeting by adding the following test without changing the other test
