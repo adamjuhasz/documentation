@@ -72,7 +72,7 @@ newScript('profile')
 .expect.text(function(session, response) {
     session.user.name = session.message.text;
 })
-.expect(function(session, response) {
+.catch(function(session, response) {
     //if the user sends a photo, ask again
     response.sendText('Can I have your name?');
 })
@@ -89,7 +89,7 @@ newScript('profile')
     }
     session.user.age = age;
 })
-.expect(function(session, response) {
+.catch(function(session, response) {
     //if the user sends a photo, ask again (with different prompt)
     response.sendText('How old are you?');
 })
@@ -102,7 +102,7 @@ newScript('profile')
     session.user.hasProfile = true;
     response.sendText('Saved!');
 })
-.expect(function(session, response) {
+.catch(function(session, response) {
     response.sendText('What is your email?');
 })
 ```

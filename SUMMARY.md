@@ -16,6 +16,7 @@
 ## Concepts
 
 * [Scripts](concepts/scripts.md)
+* Intents
 
 ## Cookbook
 

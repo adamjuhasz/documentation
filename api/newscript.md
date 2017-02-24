@@ -5,6 +5,7 @@
 * [begin](#begin)
 * dialog
 * expect
+* intent
 
 All properties take a function in the format of
 
@@ -12,7 +13,7 @@ function(**session**: [Session](/api/session.md), **response**: [Response](/api/
 
 _When no script-name is passed the script is set as the default script._
 
-## begin {#begin}
+## .begin {#begin}
 This is called when the script is first entered by the user.
 
 ```javascript
@@ -22,9 +23,24 @@ newScript('weather').begin(function(session, response, stop) {
 });
 ```
 
+## .intent {#intent}
+Called when alana detects 
+Optionally called with `.intent.always(domain, action, function(...){...})`
 
-## dialog {#dialog}
-Main way to orchestrate an interaction with the user.
+```javascript
+// Example
+newScript('weather')
+    .intent.always('general', 'help', function(session, response) {
+        response.sendText('I can help you find out if it is cold outside');
+    })
+    // ...
+    .intent('weather', 'snow', function(session, response) {
+        // do only a snow forecast
+    })
+```
+
+## .dialog {#dialog}
+Main way to orchestrate an interaction with the user. Will waterfall through multiple dialogs until **stop()** is called or an **expect.(type)** call is hit.
 ```javascript
 // Example
 newScript('weather').dialog(function(session, response, stop) {
@@ -40,7 +56,7 @@ newScript('weather').dialog(function(session, response, stop) {
 });
 ```
 
-## expect {#expect}
+## .expect {#expect}
 **Properties**
 * text
 * image
@@ -73,4 +89,6 @@ newScript('weather').expect.button(function(session, response, stop) {
 ## StopFunction {#stopfunction}
 Defined as `() => void`
 
-Will stop the script from executing till the next user input.
+Will stop the script from executing till the next user input and rerun the current step.
+
+
