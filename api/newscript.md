@@ -1,5 +1,5 @@
 [<- Return to API](/api/introduction.md)
-# newScript(name?: string)
+# **newScript**(name?: _string_): _Script_
 ## Properties
 * [begin](#begin)
 * dialog
