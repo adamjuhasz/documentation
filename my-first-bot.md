@@ -44,6 +44,8 @@ test('echo', function(){
 });
 ```
 
+Click **Save** on the toolbar and wait a few moments as the tests run, we'll receive a confirmation that all tests passed.
+
 ---
 ### Deploy
 What's a bot good for if no one can talk to it. Let's deploy our first bot. Click on the **platforms** tab. Click the floating action button to add a new platform. Select Facebook as the platform. Open a new tab and go to [developers.facebook.com](https://developers.facebook.com) and create a new bot. 
