@@ -67,7 +67,7 @@ Click **Save** on the toolbar and wait a few moments as the tests run, we'll rec
 
 ### Add a greeting
 Click on **main.js** in the scripts directory to open it. Lets add a greeting with the following code:
-```ts
+```javascript
 addGreeting(function(user, response) => {
   response.sendText("Welome, I'll echo back what you say.");
 });
