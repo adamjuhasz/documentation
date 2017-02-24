@@ -19,7 +19,7 @@ Change the `response.sendText(...);` code to read `response.sendText(sessions.me
 Click **save** in the toolbar to save the changes.
 
 The file should be similar to:
-```javascript
+```ts
 newScript()
   .dialog((sessions, response) => {
     response.sendText(sessions.message.text);
