@@ -33,7 +33,14 @@ Now let's test the new function interactively. Click **Open Chat** on the bottom
 ---
 
 ## Automated Test
-As good software engineers lets add some automated testing. Ckick on **main.js** in the tests directory to open it. First let's try adding an 
+As good software engineers lets add some automated testing. Click on **main.js** in the tests directory to open it. First let's try adding a test
+```javascript
+test('echo', function(){
+  return newTest()
+    .sendText('hello')
+    .expectText('hello')
+});
+```
 
 ---
 ## Deploy
@@ -41,4 +48,17 @@ What's a bot good for if no one can talk to it. Let's deploy our first bot.
 
 ---
 # Add some jazz
-Next lets do some test driven development and test some new functionality. We'll add a greeting so that a new user knows what to do.
+Next lets do some test driven development and test some new functionality. We'll add a greeting so that a new user knows what to do when they interact with the bot.
+
+## Add a test
+Click on **main.js** in the tests directory to open it. Test for a greeting by adding the following test without changing the other test
+```javascript
+test('greeting', function(){
+  return newTest()
+    .expectText("Welome, I'll echo back what you say.")
+    .expectText('What\'s your name?')
+    .sendText('hello')
+    .expectText('hello')
+});
+```
+Click **Save** on the toolbar and wait a few moments as the test runs
