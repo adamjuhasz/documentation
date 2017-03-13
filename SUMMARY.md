@@ -7,16 +7,18 @@
 
 ## API
 
-* [Introduction](api/introduction.md)
+* [Globals](api/introduction.md)
 * [Script](api/newscript.md)
 * [User](api/user.md)
 * [Session](api/session.md)
 * [Response](api/response.md)
+* Tester
 
 ## Concepts
 
 * [Scripts](concepts/scripts.md)
-* Intents
+* [Intents](concepts/intents.md)
+* [Testing](concepts/testing.md)
 
 ## Cookbook
 
