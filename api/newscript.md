@@ -3,10 +3,17 @@
 
 # **newScript**(name?: _string_): _Script_
 ## Properties
-* [begin](#begin)
-* dialog
-* expect
-* intent
+- [begin](#begin)
+- dialog
+- intent
+- button
+- expect
+- - text
+- - button
+- - intent
+- - match
+- - catch
+
 
 All properties take a function in the format of
 
