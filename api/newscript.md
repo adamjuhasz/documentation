@@ -23,7 +23,7 @@ The script is a key component to organizing your bot's behavior. It provides a  
  - [catch](#expect-catch)
 
 All properties take a function in the format of
-function(**session**: [Session](/api/session.md), **response**: [Response](/api/response.md), **stop**: [StopFunction](#stopfunction)) => `Promise<void>`
+function(**session**: [Session](/api/session.md), **response**: [Response](/api/response.md), **stop**: [StopFunction](#stopfunction)) => Promise<*void*>
 
 Some methods have the **always** modifier available. When adding always to the method, the script will always run through these dialogs. This is useful for responding to general intents or buttons such as 'help', 'game score', 'restart', etc.
 
