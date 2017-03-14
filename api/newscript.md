@@ -4,15 +4,15 @@
 # **newScript**(name?: _string_): _Script_
 ## Properties
 - [begin](#begin)
-- dialog
-- intent
-- button
-- expect
-- - text
-- - button
-- - intent
-- - match
-- - catch
+- [dialog](#dialog)
+- [intent](#intent)
+- [button](#button)
+- [expect](#expect)
+ - [text](#expect-text)
+ - [button](#expect-button)
+ - [intent](#expect-intent)
+ - [match](#expect-match)
+ - [catch](#expect-catch)
 
 
 All properties take a function in the format of
