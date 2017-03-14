@@ -4,6 +4,7 @@
 
 * [Introduction](README.md)
 * [My first bot](my-first-bot.md)
+* [Local use](local-use.md)
 
 ## API
 
