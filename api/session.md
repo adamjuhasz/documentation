@@ -11,9 +11,9 @@ Holds information about the current chat session
 ## User
 
 ## Messages
+- greeting
 - text
 - button
 - image
-- audio
 
 ## Intents
