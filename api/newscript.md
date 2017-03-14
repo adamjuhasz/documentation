@@ -1,7 +1,7 @@
 
 [< - Return to API](/api/introduction.md)
 
-# **newScript**(name?: _string_): _Script_
+# **newScript**(**name**?: _string_): _Script_
 ## Properties
 - [begin](#begin)
 - [dialog](#dialog)
@@ -20,6 +20,37 @@ All properties take a function in the format of
 function(**session**: [Session](/api/session.md), **response**: [Response](/api/response.md), **stop**: [StopFunction](#stopfunction)) => void
 
 _When no script-name is passed the script is set as the default script._
+
+#### Example
+```javascript
+newScript()
+    .begin(function(session, response, stop){
+        response.sendText('Welcome to this bot');
+        response.sendButtons()
+            .text('Choose')
+            .addButton('postback', '☘️ Feeling lucky', 'shuffle')
+            .addButton('postback', '🕵️ Browse', 'browse')
+            .addButton('url', 'Visit site', 'https://alana.cloud')
+            .send();
+    })
+    .expect
+        .button('shuffle', function(session, response, stop) {
+            // send shuffled list
+            response.startScript('random');
+        })
+        .button('browse', function(session, response, stop) {
+            response.startScript(...);
+        })
+        .catch(function(session, response, stop) {
+            response.sendText('This bot is confused');
+        });
+        
+newScript('random')
+    .begin(...)
+    .dialog(...)
+```
+
+---
 
 ## .begin {#begin}
 This is called when the script is first entered by the user.
