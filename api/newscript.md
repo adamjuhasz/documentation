@@ -77,26 +77,36 @@ newScript('weather').begin(function(session, response, stop) {
 ```
 ---
 ## .dialog {#dialog}
-Main way to orchestrate an interaction with the user. Will waterfall through multiple dialogs until **stop()** is called or an **expect.(type)** call is hit.
+Main way to orchestrate an interaction with the user. Will waterfall through multiple dialogs until **stop()** is called or an **expect** call is hit.
+```typescript
+.dialog(fn: DialogFunction) => Expect
+.dialog.always(fn: DialogFunction) => Expect
+```
 ```javascript
 // Example
 newScript('weather')
-.dialog(function(session, response, stop) {
-if (!session.input.location) {
-response.sendText("I don't know where that is, can you try again?");
-stop();
-}
-response.sendText(`Checking forecast for ${session.input.location}`);
-return request({
-uri: 'forecast.com', method: 'POST', json: true,
-body: {},
-});
-});
+  .dialog(function(session, response, stop) {
+    if (!session.input.location) {
+      response.sendText("I don't know where that is, can you try again?");
+      stop();
+    }
+    response.sendText(`Checking forecast for ${session.input.location}`);
+    return request({
+      uri: 'forecast.com', method: 'POST', json: true,
+      body: {},
+    });
+  });
 ```
+---
 ## .intent {#intent}
-Called when alana you want to respond to a user intent
-Optionally called with `.intent.always(domain, action, function(...){...})`
-
+Matches on a detected user intent.
+Either on just the general domain or on a specific domain and action.
+```typescript
+.intent(domain: string, fn: DialogFunction) => Expect
+.intent(domain: string, action: string, fn: DialogFunction) => Expect
+.intent.always(domain: string, fn: DialogFunction) => Expect
+.intent.always(domain: string, action: string, fn: DialogFunction) => Expect
+```
 ```javascript
 // Example
 newScript('weather')
@@ -109,6 +119,27 @@ newScript('weather')
     })
 ```
 ---
+## .button {#button}
+Responds to a post back button click from the user. If a payload is given it will only match buttons clicks with that payload.
+```typescript
+.button(payload: string, fn: DialogFunction) => Expect
+.button(fn: DialogFunction) => Expect
+.button.always(payload: string, fn: DialogFunction) => Expect
+.button.always(fn: DialogFunction) => Expect
+```
+
+```javascript
+// Example
+newScript('weather')
+.intent.always('general', 'help', function(session, response) {
+response.sendText('I can help you find out if it is cold outside');
+})
+// ...
+.intent('weather', 'snow', function(session, response) {
+// do only a snow forecast
+})
+```
+---
 ## .expect {#expect}
 #### Properties
 - [text](#expect-text)
@@ -119,8 +150,7 @@ newScript('weather')
 
 When an expect method is called, the script will automatically pause at this point and wait for some type of user input. It will then go down the expect chain, multiple expect properties can be chained together.
 
-#
-### Example
+#### Example
 ```javascript
 newScript()
 .dialog('menu', function(session, response, stop) {
