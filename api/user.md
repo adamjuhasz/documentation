@@ -1,7 +1,11 @@
-[<- Return to API](/api/introduction.md)
+[< - Return to API](/api/introduction.md)
 
 #User
+Holds information about the user
 
-##Properties
-* id
-* 
+### Methods
+- id
+- platform
+- script
+- conversation
+- state

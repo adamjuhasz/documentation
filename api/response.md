@@ -1,2 +1,2 @@
-[<- Return to API](/api/introduction.md)
+[< - Return to API](/api/introduction.md)
 # Response

@@ -13,7 +13,7 @@
 * [Session](api/session.md)
 * [Response](api/response.md)
 * [StopFunction](api/stopfunction.md)
-* Tester
+* [Tester](api/tester.md)
 
 ## Concepts
 

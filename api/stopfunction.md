@@ -1,3 +1,4 @@
+[< - Return to API](/api/introduction.md)
 # StopFunction {#stopfunction}
 Defined as `() => void`
 
