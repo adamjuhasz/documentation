@@ -5,8 +5,11 @@
 ## Properties
 - [begin](#begin)
 - [dialog](#dialog)
+ - always
 - [intent](#intent)
+ - always
 - [button](#button)
+ - always
 - [expect](#expect)
  - [text](#expect-text)
  - [button](#expect-button)
@@ -32,6 +35,9 @@ newScript()
             .addButton('postback', '🕵️ Browse', 'browse')
             .addButton('url', 'Visit site', 'https://alana.cloud')
             .send();
+    })
+    .intent.always('general', 'help', function(session, response, stop) {
+        response.sendText('This is a helpful message');
     })
     .expect
         .button('shuffle', function(session, response, stop) {
@@ -63,7 +69,7 @@ newScript('weather').begin(function(session, response, stop) {
 ```
 
 ## .intent {#intent}
-Called when alana detects 
+Called when alana you want to respond to a user intent
 Optionally called with `.intent.always(domain, action, function(...){...})`
 
 ```javascript
@@ -82,17 +88,18 @@ newScript('weather')
 Main way to orchestrate an interaction with the user. Will waterfall through multiple dialogs until **stop()** is called or an **expect.(type)** call is hit.
 ```javascript
 // Example
-newScript('weather').dialog(function(session, response, stop) {
+newScript('weather')
+  .dialog(function(session, response, stop) {
     if (!session.input.location) {
-        response.sendText("I don't know where that is, can you try again?");
-        stop();
+      response.sendText("I don't know where that is, can you try again?");
+      stop();
     }
     response.sendText(`Checking forecast for ${session.input.location}`);
     return request({
-        uri: 'forecast.com', method: 'POST',
-        json: true, body: {},
+      uri: 'forecast.com', method: 'POST', json: true, 
+      body: {},
     });
-});
+  });
 ```
 
 ## .expect {#expect}
@@ -101,7 +108,7 @@ newScript('weather').dialog(function(session, response, stop) {
 * image
 * button
 
-#### Text
+#### Text {#expect-text}
 ```javascript
 // Example
 newScript('weather').expect.text(function(session, response, stop) {
@@ -109,15 +116,7 @@ newScript('weather').expect.text(function(session, response, stop) {
 });
 ```
 
-#### Image
-```javascript
-// Example
-newScript('weather').expect.image(function(session, response, stop) {
-    console.log(session.input.message);
-});
-```
-
-#### Button
+#### Button {#expect-button}
 ```javascript
 // Example
 newScript('weather').expect.button(function(session, response, stop) {
