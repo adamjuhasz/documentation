@@ -68,7 +68,9 @@ newScript('random')
 
 ## .begin {#begin}
 This is called when the script is first entered by the user.
-
+```typescript
+.begin(fn: DialogFunction) => Expect
+```
 ```javascript
 // Example
 newScript('weather').begin(function(session, response, stop) {
