@@ -82,12 +82,14 @@ newScript('weather').begin(function(session, response, stop) {
 Main way to orchestrate an interaction with the user. Will waterfall through multiple dialogs until **stop()** is called or an **expect** call is hit.
 ```typescript
 .dialog(fn: DialogFunction) => Expect
+.dialog(name: string, fn: DialogFunction) => Expect
 .dialog.always(fn: DialogFunction) => Expect
+.dialog.always(name: string, fn: DialogFunction) => Expect
 ```
 ```javascript
 // Example
 newScript('weather')
-  .dialog(function(session, response, stop) {
+  .dialog('starting', function(session, response, stop) {
     if (!session.input.location) {
       response.sendText("I don't know where that is, can you try again?");
       stop();
@@ -97,6 +99,11 @@ newScript('weather')
       uri: 'forecast.com', method: 'POST', json: true,
       body: {},
     });
+  })
+  .dialog(function(session, response, stop) {
+      if (...) {
+          response.goto('starting');
+      }
   });
 ```
 ---

@@ -8,6 +8,117 @@
 - goto
 - sendText
 - sendImage
-- sendButtons
-- sendAudio
+- createButtons
 
+## startScript {#startScript}
+Begin a new script using the scripts name
+```typescript
+.startScript(script_name: string) => void
+```
+```javascript
+// Example
+newScript('weather')
+  // dialogs go here
+
+newScript()
+.dialog(function(session, response, stop) {
+  if (session.intent.domain = 'weather') {
+    response.startScript('weather');
+  }
+});
+```
+
+## endScript {#endScript}
+Go back to the default script
+```typescript
+.endScript() => void
+```
+```javascript
+// Example
+newScript('weather')
+  // dialogs go here
+  .dialog(function(session, response, stop) {
+    response.endScript();
+  });
+
+newScript()
+.dialog(function(session, response, stop) {
+  if (session.intent.domain = 'weather') {
+    response.startScript('weather');
+  }
+});
+```
+
+## goto {#goto}
+Go back to the default script
+```typescript
+.goto(dialog_name: string) => void
+```
+```javascript
+// Example
+.dialog('starting', function(session, response, stop) {
+  response.sendText(`Checking forecast for ${session.input.location}`);
+  return request({
+    uri: 'forecast.com', method: 'POST', json: true,
+    body: {},
+  });
+})
+.dialog(function(session, response, stop) {
+  if (...) {
+    response.goto('starting');
+  }
+});
+```
+
+## sendText {#sendtext}
+Go back to the default script
+```typescript
+.sendText(text: string) => Promise<Response>
+```
+```javascript
+// Example
+.dialog(function(session, response, stop) {
+  response.sendText('hi');
+})
+```
+
+## sendImage {#sendimage}
+Go back to the default script
+```typescript
+.sendImage(url: string) => Promise<Response>
+```
+```javascript
+// Example
+.dialog(function(session, response, stop) {
+  response.sendImage('https://image.come/hi.jpg');
+})
+```
+
+## createButtons {#createbuttons}
+Go back to the default script
+```typescript
+.createButtons() => Button
+class Button {
+  text(): string
+  text(text: string): this;
+  addButton('postback', text: string, payload: string): this
+  addButton('url', text: string, payload: string): this
+  send(): Response
+}
+```
+```javascript
+// Example
+.dialog(function(session, response, stop) {
+  response.createButtons()
+    .text('choose one:')
+    .addButton('postback', 'choice 1', 'c1')
+    .addButton('postback', 'choice 2', 'c2')
+    .send();
+})
+.expect.button('c1', function(session, response, stop) {
+  // clicked choice 1
+})
+.expect.button('c2', function(session, response, stop) {
+  // clicked choice 2
+})
+```
