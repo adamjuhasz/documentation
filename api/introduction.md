@@ -47,4 +47,4 @@ Create a new test, *Can only be called in the tests directory.*
 ```typescript
 newTest(userId: string): Tester;
 ```
-#### [Tester documentation](/api/newscript)
+#### [Testing documentation](/api/newscript)

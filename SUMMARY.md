@@ -10,8 +10,10 @@
 
 * [Globals](api/introduction.md)
 * [Script](api/newscript.md)
-* [User](api/user.md)
 * [Session](api/session.md)
+* [User](api/user.md)
+* [Message](api/message.md)
+* [Intent](api/intent.md)
 * [Response](api/response.md)
 * [StopFunction](api/stopfunction.md)
 * [Tester](api/tester.md)
