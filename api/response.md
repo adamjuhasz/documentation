@@ -27,7 +27,7 @@ newScript()
   }
 });
 ```
-
+---
 ## endScript {#endScript}
 Go back to the default script
 ```typescript
@@ -48,9 +48,9 @@ newScript()
   }
 });
 ```
-
+---
 ## goto {#goto}
-Go back to the default script
+Go to a named dialog
 ```typescript
 .goto(dialog_name: string) => void
 ```
@@ -69,9 +69,9 @@ Go back to the default script
   }
 });
 ```
-
+--
 ## sendText {#sendtext}
-Go back to the default script
+Send a text message to the user.
 ```typescript
 .sendText(text: string) => Promise<Response>
 ```
@@ -83,7 +83,7 @@ Go back to the default script
 ```
 
 ## sendImage {#sendimage}
-Go back to the default script
+Send an image to the user.
 ```typescript
 .sendImage(url: string) => Promise<Response>
 ```
@@ -95,7 +95,7 @@ Go back to the default script
 ```
 
 ## createButtons {#createbuttons}
-Go back to the default script
+Send buttons to the user
 ```typescript
 .createButtons() => Button
 class Button {
@@ -113,6 +113,7 @@ class Button {
     .text('choose one:')
     .addButton('postback', 'choice 1', 'c1')
     .addButton('postback', 'choice 2', 'c2')
+    .addButton('url', 'Visit website', 'https://www.alana.tech')
     .send();
 })
 .expect.button('c1', function(session, response, stop) {
